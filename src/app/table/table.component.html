@@ -1,0 +1,49 @@
+NgSemanticModule<br>
+<div id="disclosures-wrapper" class="ui grid container">
+  <!--<br>-->
+  <div class="row">
+    <div class="sixteen wide column">
+      <div class="ui input">
+        <input type="text" placeholder="Filter by name" [(ngModel)]="filterQuery"/>
+      </div>
+      <table class="ui small single line very compact table" id="sponsored-table" [mfData]="data | dataFilter : filterQuery" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+        <thead>
+          <tr>
+            <th class="two wide">
+              <mfDefaultSorter by="Name">Name</mfDefaultSorter>
+            </th>
+            <th class="two wide">
+              <mfDefaultSorter by="Email">Email</mfDefaultSorter>
+            </th>
+            <th class="five wide">
+              <mfDefaultSorter by="ProjectTitle">Project Title</mfDefaultSorter>
+            </th>
+         
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of data">
+            <ng-container>
+              <td>{{ proposal.Name }}</td>
+              <td>{{ proposal.Email }}</td>
+              <td>{{ proposal.ProjectTitle }}</td>
+             
+              
+            </ng-container>
+          </tr>
+        </tbody>
+        
+        <tfoot>
+          <tr>
+              <th colspan="7">
+                
+                  <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]"></mfBootstrapPaginator>
+               
+              </th>
+          </tr>
+          </tfoot>
+      </table>
+    </div>
+  </div>
+</div>
+
